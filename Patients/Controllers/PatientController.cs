@@ -14,32 +14,18 @@ namespace Patients.Controllers
         [Route("get")]
         public List<Patient> GetPatients()
         {
-            //patients.Add(
-            //    new Patient
-            //    {
-            //        id = "1",
-            //        name = "Daniel",
-            //        age = "31"
-
-            //    });
-            //patients.Add(
-            //new Patient
-            //{
-            //    id = "2",
-            //    name = "Alejandro",
-            //    age = "25"
-            //});
+            
 
             return patients;
         }
 
         [HttpPost]
         [Route("create")]
-        public void CreatePatients(string _id, string _name, string _age)
+        public void CreatePatients([FromBody] Patient patient)
         {
             
 
-            patients.Add(new Patient(_id, _name, _age));
+            patients.Add(patient);
             
 
         }
@@ -62,17 +48,30 @@ namespace Patients.Controllers
         public Patient DeletePatient(string _id)
         {
 
+            Patient result = patients.Find(p => p.id == _id);
 
-          
+
+
+            patients.Remove(result);
+
+            return result;
+
+
         }
-        [HttpGet]
+        [HttpPost]
         [Route("edit")]
 
-        public Patient EditPatient(string _id)
+        public Patient EditPatient([FromBody] Patient patient)
         {
 
+            var EditPatient = patient;
 
-            
+           var beforePatient = patients.FirstOrDefault(p => p.id == EditPatient.id);
+
+            patients.Remove(beforePatient);
+            patients.Add(EditPatient);
+
+            return EditPatient;
         }
     }
 }
