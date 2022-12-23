@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Patients.Infrastructure;
 using Patients.Models;
+
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
@@ -9,26 +12,38 @@ namespace Patients.Controllers
     [Route("patients")]
     public class PatientController : ControllerBase
     {
+        Repository repository;
+
+        public PatientController()
+        {
+            repository = new Repository();  
+        }
         private static List<Patient> patients = new List<Patient>();
         [HttpGet]
         [Route("get")]
         public List<Patient> GetPatients()
         {
-            
-
+            Patient newPatient = new Patient()
+            {
+                id = "1",
+                name = "Daniel",
+                birthDate = "30"
+            };
+            repository.Create(newPatient);
             return patients;
         }
 
         [HttpPost]
         [Route("create")]
-        public void CreatePatients([FromBody] Patient patient)
+        public void Post([FromBody] Patient patient)
         {
             
 
             patients.Add(patient);
-            
+
 
         }
+
         [HttpGet]
         [Route("getbyid")]
 
@@ -42,10 +57,11 @@ namespace Patients.Controllers
 
             return result;
         }
-        [HttpGet]
+
+        [HttpDelete]
         [Route("delete")]
 
-        public Patient DeletePatient(string _id)
+        public void Delete(string _id)
         {
 
             Patient result = patients.Find(p => p.id == _id);
@@ -54,10 +70,11 @@ namespace Patients.Controllers
 
             patients.Remove(result);
 
-            return result;
+            
 
 
         }
+
         [HttpPost]
         [Route("edit")]
 

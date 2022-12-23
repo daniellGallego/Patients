@@ -2,23 +2,24 @@
 {
     public class Patient
     {
+        public string documentType { get; set; }
         public string id { get; set; }
         public string name { get; set; }
 
-        public string age { get; set; }
+        public string secondName { get; set; }
+        public string birthDate { get; set; }
+        public string gender { get; set; }
 
-        public Patient()
-        {
+        public string maritalStatus { get; set; }
 
-        }
+        public string doctor { get; set; }
 
-        public Patient(string pid, string pname, string page)
-        {
-            this.id = pid;
-            this.name = pname;
-            this.age = page;
-        }
+        public string dentalPatient { get; set; }
 
-        
+
+
+
+
+
     }
 }
