@@ -75,7 +75,7 @@ namespace Patients.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("edit")]
 
         public Patient EditPatient([FromBody] Patient patient)

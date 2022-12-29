@@ -1,14 +1,44 @@
 ﻿// dar los valores al check si el pacientes es o no odontologico
-let dentalPatient = document.querySelector('#dentalPatient');
+
+//let dentalPatient = document.querySelector('#dentalPatient');
 
 
-    dentalPatient.addEventListener('click', () => {
+//dentalPatient.addEventListener('click', () => {
+
+//    if (dentalPatient.checked) {
+//        dentalPatient.value = "Si";
+//    } else {
+//        dentalPatient.value = "No";
+//    }
+//});
+
+$('#dentalPatient').on('click', function() {
+
     if (dentalPatient.checked) {
-        dentalPatient.value = "si";
+        dentalPatient.value = "Si";
     } else {
-        dentalPatient.value = "no";
+        dentalPatient.value = "No";
     }
-    });
+});
+
+// validar el valor del check al precargar los datos del paciente a editar
+//window.addEventListener('load', () => {
+
+//    if (dentalPatient.value == "Si") {
+//        dentalPatient.checked = true;
+//    } else {
+//        dentalPatient.checked = false;
+//    }
+//});
+
+$(window).on('load', function() {
+
+    if (dentalPatient.value == "Si") {
+        dentalPatient.checked = true;
+    } else {
+        dentalPatient.checked = false;
+    }
+});
 
 // calcular la edad por medio del campo fecha de nacimiento.
 
@@ -36,12 +66,27 @@ const calculateAge = (birthDate) => {
     return age;
 }
 
-window.addEventListener('load', function () {
-    birthDate.addEventListener('change', function () {
-        if (this.value) {
-            age.value = calculateAge(this.value)+" años"
-        }
 
-    })
+ //birthDate.addEventListener('change',  function () {
+ //    if (this.value) {
+ //        age.value = calculateAge(this.value) + " años"
+           
+
+ //       }
+
+ //});
+
+$('#birthDate').on('change', function () {
+    if (this.value) {
+        age.value = calculateAge(this.value) + " años"
+
+
+    }
+
 });
+
+
+
+
+
 

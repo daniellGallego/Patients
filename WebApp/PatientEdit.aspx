@@ -12,18 +12,14 @@
             <br />
 
             <form id="basic-form" method="post">
-
-
                 <div class="row mb-3">
                     <label for="documentType" class="col-sm-2 col-form-label">Tipo de docuimento :</label>
                     <div class="col-sm-5">
-                        <select class="form-select" id="documentType"  data-bind='textInput: newPatient.documentType' required> 
-                            
+                        <select class="form-select" id="documentType"  data-bind='textInput: newPatient.documentType' require  
                         </select>
                     </div>
                 </div>
                 <br />
-                 
 
                 <div class="row mb-3">
                     <label for="id" class="col-sm-2 col-form-label">Numero de documento :</label>
@@ -57,13 +53,12 @@
                     </div>
                 </div>
                 <br />
-
+             
                  <div class="row mb-3">
                     <label for="age" class="col-sm-2 col-form-label">edad :</label>
-                    
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="age" name="age" data-bind='value: newPatient.age'>
-                       <%-- <span data-bind="textInput: newPatient.age" id="age" name="age" > a</span>--%>
+                       <%-- <input type="text" class="form-control" id="age" name="age" value="" data-bind='value: newPatient.age'/>--%>
+                        <span id="age" name="age"  data-bind='text: newPatient.age'></span>
                     </div>
                 </div>
                 <br />
@@ -73,7 +68,6 @@
                     <label for="gender" class="col-sm-2 col-form-label">Genero :</label>
                     <div class="col-sm-10">
                         <select class="form-select" id="gender" data-bind='textInput: newPatient.gender' required>
-                           
                         </select>
                     </div>
                 </div>
@@ -82,9 +76,7 @@
                 <div class="row mb-3">
                     <label for="maritalstatus" class="col-sm-2 col-form-label">Estado civil :</label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="maritalstatus" data-bind='textInput: newPatient.maritalStatus' required> 
-                           
-                            
+                        <select class="form-select" id="maritalstatus" data-bind='textInput: newPatient.maritalStatus' required>  
                         </select>
                     </div>
                 </div>
@@ -102,14 +94,14 @@
 
                 <div class="col-12">
                     <label class="form-check-label" for="dentalPatient">Paciente Odontologico</label>
-                    <div class="form-check form-switch">                         
-                           <input class="form-check-input" type="checkbox" role="switch" id="dentalPatient" value="No" name="dentalPatient"
+                    <div class="form-check form-switch">                          
+                           <input class="form-check-input" type="checkbox" role="switch" id="dentalPatient" name="dentalPatient"
                             data-bind='textInput: newPatient.dentalPatient'>
                       
                     </div>
                     <br />
 
-                    <button type="submit" class="btn btn-primary" data-bind="click: createPatient">Crear</button>
+                    <button type="submit" class="btn btn-primary" data-bind="click: editPatient">Guardar</button>
             </form>
 
 
@@ -123,7 +115,10 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="scripts" runat="server">
-     <script src="JS/patientCreate.js"></script>
+     
+     <script src="JS/patientEdit.js"></script>
+    <script src="JS/selects.js"></script>
       <script src="JS/app.js"></script>
-        <script src="JS/selects.js"></script>
+
 </asp:Content>
+

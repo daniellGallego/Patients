@@ -8,6 +8,7 @@
 
         public string secondName { get; set; }
         public string birthDate { get; set; }
+        public string age { get; set; }
         public string gender { get; set; }
 
         public string maritalStatus { get; set; }

@@ -127,9 +127,13 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="JS\app.js" />
     <Content Include="JS\patientCreate.js" />
+    <Content Include="JS\patientEdit.js" />
     <Content Include="JS\patients.js" />
+    <Content Include="JS\search.js" />
     <Content Include="JS\selects.js" />
+    <Content Include="JS\sweetAlert.js" />
     <Content Include="PatientCreate.aspx" />
+    <Content Include="PatientEdit.aspx" />
     <Content Include="Patients.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -198,6 +202,13 @@
     </Compile>
     <Compile Include="PatientCreate.aspx.designer.cs">
       <DependentUpon>PatientCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientEdit.aspx.cs">
+      <DependentUpon>PatientEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientEdit.aspx.designer.cs">
+      <DependentUpon>PatientEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patients.aspx.cs">
       <DependentUpon>Patients.aspx</DependentUpon>
